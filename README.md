@@ -83,9 +83,10 @@ Make sure you have the following installed:
 - [Postman](https://www.postman.com/) (for testing)
 
 ### 2. Clone the Repository
-
+```bash
 git clone https://github.com/your-username/trader-joes-college-meals.git
 cd trader-joes-college-meals/backend
+```
 
 ### 3. Install Backend Dependencies
 
