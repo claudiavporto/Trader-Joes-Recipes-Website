@@ -154,4 +154,4 @@ npm run dev
 
 **Claudia Porto**  
 CSC 240 – Final Project  
-June 2025```
+June 2025
