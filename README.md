@@ -89,20 +89,23 @@ cd trader-joes-college-meals/backend
 ```
 
 ### 3. Install Backend Dependencies
-
+```bash
 npm install
+```
 
 ### 4. Create a .env File
-
+```bash
 Create a `.env` file in `/backend/` with:
 
 PORT=5000
 MONGODB_URI=your_mongo_uri_here
 JWT_SECRET=your_jwt_secret_key_here
+```
 
 ### 5. Start the Backend Server
-
+```bash
 npm run dev
+```
 
 ### 6. Open the Frontend
 
@@ -110,7 +113,7 @@ npm run dev
 - Ensure the backend is running at http://localhost:5000 for full functionality like favorites and shopping cart
 
 ## API Endpoints
-
+```text
 | Method   | Endpoint                       | Description                          |
 |----------|--------------------------------|--------------------------------------|
 | POST     | `/api/users/register`          | Register a new user                  |
@@ -123,6 +126,7 @@ npm run dev
 | POST     | `/api/contact`                 | Submit contact form                  |
 | GET/POST | `/api/recipes`                 | View or add recipes                  |
 | GET/POST | `/api/shopping-list`           | View or update shopping list         |
+```
 
 ## Future Improvements
 
