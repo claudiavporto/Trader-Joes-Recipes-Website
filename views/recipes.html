@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipes</title>
+  <link rel="stylesheet" href="../style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1 id="main-title">All Recipes</h1>
+    <nav aria-label="Main navigation">
+      <a href="../views/index.html">Home</a>
+      <a href="../views/recipes.html" class="active">Recipes</a>
+      <a href="../views/myrecipes.html">My Recipes</a>
+      <a href="../views/shoppingcart.html">Shopping Cart</a>
+      <a href="../views/about.html">About</a>
+      <span id="logout-container" style="display: none;">
+        <button id="logout-button" onclick="logout()">Logout</button>
+      </span>
+    </nav>
+  </header>
+  <main class="recipes-page">
+    <input type="text" id="search-bar" placeholder="🔍 Search recipes..."/>
+
+    <div class="category-buttons">
+      <button type="button" onclick="filterRecipes('all')">🍽️ All</button>
+      <button type="button" onclick="filterRecipes('breakfast')">🌞 Breakfast</button>
+      <button type="button" onclick="filterRecipes('lunch')">🥪 Lunch</button>
+      <button type="button" onclick="filterRecipes('dinner')">🌙 Dinner</button>
+      <button type="button" onclick="filterRecipes('vegan')">🌱 Vegan</button>
+      <button type="button" onclick="filterRecipes('dessert')">🍪 Dessert</button>
+      <button type="button" id="surprise-me" onclick="showRandomRecipe()">🎲 Surprise Me</button>
+    </div>
+
+    <div class="recipes">
+      <!-- Breakfast Burrito -->
+      <section id="recipe-breakfast-burrito" class="recipe-card category-breakfast category-quick">
+        <button class="heart-button">❤️</button>
+        <div class="recipe-categories">🌞</div>
+        <h2>Breakfast Burrito</h2>
+        <img src="../images/breakfastburrito.jpg" alt="Breakfast Burrito with eggs, hash browns, and salsa in a tortilla"/>
+        <p>All you need is TJ’s frozen hash browns, eggs, and salsa. Cook, roll, and devour.</p>
+        <div class="recipe-details">
+          <strong>Ingredients:</strong>
+          <ul>
+            <li>1 frozen hash brown patty <button class="add-to-cart" data-ingredient="Frozen hash brown patties">🛒</button></li>
+            <li>2 eggs <button class="add-to-cart" data-ingredient="Eggs">🛒</button></li>
+            <li>2 tbsp salsa <button class="add-to-cart" data-ingredient="Salsa">🛒</button></li>
+            <li>1 tortilla <button class="add-to-cart" data-ingredient="Tortilla">🛒</button></li>
+          </ul>
+          <strong>Instructions:</strong>
+          <ol>
+            <li>Cook hash brown according to package instructions.</li>
+            <li>Scramble the eggs in a pan.</li>
+            <li>Warm the tortilla and layer hash brown, eggs, and salsa.</li>
+            <li>Wrap it up and enjoy!</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Orange Chicken Bowl -->
+      <section id="recipe-orange-chicken-bowl" class="recipe-card category-dinner">
+        <button class="heart-button">❤️</button>
+        <div class="recipe-categories">🌙</div>
+        <h2>Orange Chicken Bowl</h2>
+        <img src="../images/orangechicken.jpg" alt="Orange chicken served over rice in a bowl"/>
+        <p>Grab TJ’s orange chicken and microwave rice. Done in under 10 minutes.</p>
+        <div class="recipe-details">
+          <strong>Ingredients:</strong>
+          <ul>
+            <li>1 bag of TJ’s Mandarin Orange Chicken <button class="add-to-cart" data-ingredient="TJ’s mandarin orange chicken">🛒</button></li>
+            <li>1 packet of microwave jasmine rice <button class="add-to-cart" data-ingredient="Microwave jasmine rice">🛒</button></li>
+            <li>Optional: chopped green onions <button class="add-to-cart" data-ingredient="Green onions">🛒</button></li>
+          </ul>
+          <strong>Instructions:</strong>
+          <ol>
+            <li>Cook the orange chicken per package instructions.</li>
+            <li>Microwave rice as directed.</li>
+            <li>Mix together in a bowl and top with green onions if desired.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Mini Gnocchi & Pesto -->
+      <section id="recipe-mini-gnocchi-&-pesto" class="recipe-card category-dinner">
+        <button class="heart-button">❤️</button>
+        <div class="recipe-categories">🌙</div>
+        <h2>Mini Gnocchi & Pesto</h2>
+        <img src="../images/gnocchipesto.jpg" alt="Mini gnocchi tossed with green pesto sauce"/>
+        <p>Sauté TJ’s mini gnocchi with a spoon of pesto. That’s it. So good.</p>
+        <div class="recipe-details">
+          <strong>Ingredients:</strong>
+          <ul>
+            <li>1 bag of TJ’s mini gnocchi <button class="add-to-cart" data-ingredient="TJ’s mini gnocchi">🛒</button></li>
+            <li>2 tbsp pesto <button class="add-to-cart" data-ingredient="Pesto">🛒</button></li>
+            <li>Optional: grated parmesan <button class="add-to-cart" data-ingredient="Grated parmesan">🛒</button></li>
+          </ul>
+          <strong>Instructions:</strong>
+          <ol>
+            <li>Sauté gnocchi in a nonstick pan for 5-7 minutes until golden.</li>
+            <li>Stir in pesto and cook for another minute.</li>
+            <li>Top with parmesan if using and serve warm.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Creamy Gochujang Pasta -->
+      <section id="recipe-creamy-gochijang-pasta" class="recipe-card category-dinner">
+        <button class="heart-button">❤️</button>
+        <div class="recipe-categories">🌙</div>
+        <h2>Creamy Gochujang Pasta</h2>
+        <img src="../images/gochujangpasta.jpg" alt="Creamy red pasta dish with gochujang and parmesan"/>
+        <p>A spicy, creamy fusion pasta with a kick using TJ’s gochujang and heavy cream.</p>
+        <div class="recipe-details">
+          <strong>Ingredients:</strong>
+          <ul>
+            <li>1 pack TJ’s pasta (like rigatoni or spaghetti) <button class="add-to-cart" data-ingredient="TJ’s Pasta">🛒</button></li>
+            <li>1 tbsp gochujang <button class="add-to-cart" data-ingredient="Gochujang">🛒</button></li>
+            <li>1/2 cup heavy cream <button class="add-to-cart" data-ingredient="Heavy Cream">🛒</button></li>
+            <li>1 tbsp butter <button class="add-to-cart" data-ingredient="Butter">🛒</button></li>
+            <li>Grated parmesan (optional) <button class="add-to-cart" data-ingredient="Grated parmesan">🛒</button></li>
+          </ul>
+          <strong>Instructions:</strong>
+          <ol>
+            <li>Cook pasta and reserve 1/4 cup of the water.</li>
+            <li>In a pan, melt butter, add gochujang, then stir in cream.</li>
+            <li>Add pasta and a splash of pasta water. Toss until coated and creamy.</li>
+            <li>Top with parmesan and serve.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Miso Crunch Salad -->
+      <section id="recipe-miso-crunch-salad" class="recipe-card category-lunch category-vegan">
+        <button class="heart-button">❤️</button>
+        <div class="recipe-categories">🥪🌱</div>
+        <h2>Miso Crunch Salad</h2>
+        <img src="../images/misosalad.jpg" alt="Miso salad with avocado and sesame seeds"/>
+        <p>A refreshing and umami-packed salad made with TJ’s miso dressing and crunchy slaw.</p>
+        <div class="recipe-details">
+          <strong>Ingredients:</strong>
+          <ul>
+            <li>1 bag TJ’s Cruciferous Crunch Collection <button class="add-to-cart" data-ingredient="TJ’s Cruciferous Crunch Collection">🛒</button></li>
+            <li>1/4 cup TJ’s Miso Ginger Dressing <button class="add-to-cart" data-ingredient="TJ’s Miso Ginger Dressing">🛒</button></li>
+            <li>1 avocado, sliced <button class="add-to-cart" data-ingredient="Avocado">🛒</button></li>
+            <li>Toasted sesame seeds <button class="add-to-cart" data-ingredient="Sesame seeds">🛒</button></li>
+          </ul>
+          <strong>Instructions:</strong>
+          <ol>
+            <li>Toss salad mix with dressing in a large bowl.</li>
+            <li>Add avocado slices on top.</li>
+            <li>Sprinkle with sesame seeds and serve cold.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Salmon Rice Bowl -->
+      <section id="recipe-salmon-rice-bowl" class="recipe-card category-lunch">
+        <button class="heart-button">❤️</button>
+        <div class="recipe-categories">🥪</div>
+        <h2>Salmon Rice Bowl</h2>
+        <img src="../images/salmonbowl.jpg" alt="Rice bowl with salmon, avocado, and spicy mayo"/>
+        <p>Inspired by Emily Mariko, but simplified with TJ’s frozen salmon and microwave rice.</p>
+        <div class="recipe-details">
+          <strong>Ingredients:</strong>
+          <ul>
+            <li>1 TJ’s frozen cooked salmon fillet (defrosted) <button class="add-to-cart" data-ingredient="Frozen cooked salmon fillet">🛒</button></li>
+            <li>1 TJ’s microwave jasmine rice <button class="add-to-cart" data-ingredient="Microwave jasmine rice">🛒</button></li>
+            <li>1 tbsp mayo + 1 tsp sriracha (or spicy mayo) <button class="add-to-cart" data-ingredient="TJ’s Mandarin Orange Chicken">🛒</button></li>
+            <li>Avocado slices <button class="add-to-cart" data-ingredient="TJ’s Mandarin Orange Chicken">🛒</button></li>
+            <li>Seaweed snacks (optional) <button class="add-to-cart" data-ingredient="TJ’s Mandarin Orange Chicken">🛒</button></li>
+          </ul>
+          <strong>Instructions:</strong>
+          <ol>
+            <li>Microwave salmon and rice. Flake salmon into a bowl with rice.</li>
+            <li>Top with spicy mayo and mix well.</li>
+            <li>Add avocado on the side. Scoop with seaweed snacks like mini tacos!</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Cookie Butter Mug Cake -->
+      <section id="recipe-cookie-butter-mug-cake" class="recipe-card category-dessert">
+        <button class="heart-button">❤️</button>
+        <div class="recipe-categories">🍪</div>
+        <h2>Cookie Butter Mug Cake</h2>
+        <img src="../images/cookiemugcake.jpg" alt="Mug cake topped with whipped cream and cookie butter"/>
+        <p>A quick, warm dessert made in a mug using TJ’s speculoos cookie butter.</p>
+        <div class="recipe-details">
+            <strong>Ingredients:</strong>
+            <ul>
+            <li>2 tbsp TJ’s cookie butter <button class="add-to-cart" data-ingredient="TJ’s Cookie Butter">🛒</button></li>
+            <li>2 tbsp flour <button class="add-to-cart" data-ingredient="Flour">🛒</button></li>
+            <li>1 tbsp sugar <button class="add-to-cart" data-ingredient="Sugar">🛒</button></li>
+            <li>1 tbsp milk <button class="add-to-cart" data-ingredient="Milk">🛒</button></li>
+            <li>1/4 tsp baking powder <button class="add-to-cart" data-ingredient="Baking powder">🛒</button></li>
+            </ul>
+            <strong>Instructions:</strong>
+            <ol>
+            <li>Mix everything in a microwave-safe mug until smooth.</li>
+            <li>Microwave for 60 seconds until puffed and soft.</li>
+            <li>Top with whipped cream or ice cream if you’re feeling fancy.</li>
+            </ol>
+        </div>
+      </section>
+      </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Easy Trader Joe's College Meals
+  </footer>
+
+  <script src="../config.js"></script>
+  <script src="../cart.js"></script>
+  <script src="../recipes.js"></script>
+</body>
+</html>

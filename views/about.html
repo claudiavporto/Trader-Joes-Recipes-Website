@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+  <link rel="stylesheet" href="../style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+      <h1 id="main-title">Meet the Creator</h1>
+      <nav aria-label="Main navigation">
+        <a href="../views/index.html">Home</a>
+        <a href="../views/recipes.html">Recipes</a>
+        <a href="../views/myrecipes.html">My Recipes</a>
+        <a href="../views/shoppingcart.html">Shopping Cart</a>
+        <a href="../views/about.html" class="active">About</a>
+        <span id="logout-container" style="display: none;">
+          <button id="logout-button" onclick="logout()">Logout</button>
+        </span>
+      </nav>
+    </header>
+  
+    <main>
+      <section class="about-content">
+        <img src="../images/Headshot--Claudia.jpg" alt="A photo of the creator, a college student who loves Trader Joe's meals" />
+        <div>
+          <p id="description">
+            Hey! I'm Claudia and I’m a college student on a budget who lives off of Trader Joe’s snacks and one-pan dinners.🍽️
+          </p>
+          <p id="description">
+            I hope these recipes bring you just as much joy (and leftovers) as they do for me!💗
+          </p>
+        </div>
+      </section>
+      <section class="contact-form-section">
+        <h2>Contact Me</h2>
+        <form id="contact-form" novalidate>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+          <span class="error-message" id="name-error"></span>
+      
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <span class="error-message" id="email-error"></span>
+      
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+          <span class="error-message" id="message-error"></span>
+      
+          <button type="submit">Send Message</button>
+        </form>
+      </section>      
+    </main>
+  
+    <footer>
+      &copy; 2025 Easy Trader Joe's College Meals
+    </footer>
+    
+    <script src="../config.js"></script>
+    <script src="../contact.js"></script>
+</body>
+</html>

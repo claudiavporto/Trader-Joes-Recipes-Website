@@ -1,0 +1,623 @@
+  :root {
+    --butter-yellow: #fff3b0;
+    --soft-peach: #ffd6d6;
+    --blush-pink: #ffcad4;
+    --pink: #ff9bad;
+    --lavender: #d8c4f1;
+    --white: #ffffff;
+    --black: #000000;
+  }
+  
+  /* ========== Base Styles ========== */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(to bottom right, #faf1f3, #fce5de);
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  h1, h2{
+    font-family: 'Pacifico', cursive;
+    color: var(--blush-pink);
+    text-align: center;
+  }
+
+  h2{
+    font-size: 40px;
+  }
+  
+  h1#main-title {
+    color: var(--pink);
+    position: sticky;
+    background-color: var(--white);
+    font-size: 60px;
+  }
+  
+  p {
+    text-align: center;
+  }
+  
+  p#description {
+    text-align: center;
+    max-width: 1000px;
+    margin: 2rem auto;
+    font-size: 40px;
+  }
+
+  main {
+    padding: 20px;
+    flex: 1;
+  }
+
+  main .recipes-page{
+    padding: 40px;
+    display: flex;
+    align-items: flex-start;
+    margin-top: 100px;
+  }
+  
+  /* ========== Header & Navigation ========== */
+  header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #f8f8f8;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: var(--white);
+  }
+  
+  header nav {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  nav {
+    background-color: var(--lavender);
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  
+  nav a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: var(--white);
+  }
+
+  nav a.active {
+    color: var(--white);
+  }
+
+  /* ========== Category Buttons ========== */
+  .category-buttons {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 150px;
+    padding: 1rem;
+    padding-top: 260px;
+    background-color: transparent;
+    color: var(--soft-peach);
+    margin-left: 20px;
+    transition: width 0.3s ease-in-out;
+    z-index: 10;
+  }
+  
+  .category-buttons button {
+    background-color: var(--soft-peach);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    margin: 0.5rem 0;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .category-buttons button:hover {
+    background-color: var(--lavender);
+    color: var(--white);
+  }
+
+  .category-buttons button.active {
+    background-color: var(--lavender);
+    color: var(--white);
+    border: 2px solid var(--soft-peach);
+  }
+  
+  #search-bar {
+    position: fixed; 
+    top: 270px;
+    left: 30px;
+    width: 160px; 
+    padding: 6px;
+    font-size: 0.8rem;
+    border-radius: 8px;
+    border: 1px solid var(--soft-peach);
+    background-color: var(--white);
+    z-index: 1000;
+  }
+
+  /* ========== Recipe Cards Container ========== */
+  .recipe-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-left: 220px;
+    padding: 1.5rem;
+  }
+
+  /* ========== Recipe Cards ========== */
+  .recipes {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 1rem 1rem 1rem 200px;
+  }
+
+  .recipe-card {
+    border: 4px solid var(--butter-yellow);
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2rem; 
+    margin: 2rem auto; 
+    max-width: 950px; 
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    width: 90%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    perspective: 1000px;
+  }
+  
+  .recipe-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .recipe-card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .recipe-details {
+    display: none;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--lavender);
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: left;
+    width: 100%;
+    transition: max-height 0.4s ease-out;
+  }
+
+  .recipe-categories {
+    position: absolute; 
+    top: 10px;
+    right: 10px;
+    font-size: 2rem; 
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+  /* ========== Saved Recipe Cards ========== */
+
+  #my-recipes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  #my-recipes-container .recipe-card {
+    width: 90%;
+    margin: 15px;
+    text-align: center;
+  }
+
+  .remove-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+  }
+  
+  /* ========== Shopping Cart ========== */
+  .add-to-cart {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 5px;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .add-to-cart:hover {
+      background-color: var(--blush-pink);
+      border-radius: 5px;
+      padding: 5px;
+  }
+
+  #cart-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  #cart-items {
+      list-style: none;
+      padding: 0;
+  }
+
+  #cart-items li:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.01);
+  }
+
+  #cart-items li {
+      padding: 8px;
+      background: #fff;
+      margin: 4px 0;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  #clear-cart-button {
+      background: #ff6b6b;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 20px auto;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      display: block;
+  }
+
+  #clear-cart-button:hover {
+      background: #ff5252;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      transform: scale(1.01);
+  }
+
+  #cart-items li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    background: #fff;
+    margin: 4px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  #cart-items li label {
+      text-align: left;
+      flex-grow: 1;
+  }
+
+  .cart-checkbox {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid green;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .cart-checkbox:checked {
+    background-color: green;
+  }
+
+  .cart-checkbox:checked::after {
+    content: "✔";
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .cart-checkbox:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .remove-item {
+    background: none;
+    border: none;
+    color: #ff6b6b;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0; 
+  }
+
+  .remove-item:hover {
+      color: #ff5252;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  /* ========== About ========== */
+  .about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .about-content img {
+    border-radius: 50%;
+    width: 400px;
+    height: 450px;
+    object-fit: cover;
+  }
+  
+  .about-content div {
+    max-width: 600px;
+  }
+
+  /* ========= Heart Button ========= */
+  .heart-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .heart-button:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  /* ========== Footer ========== */
+  footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.8rem;
+    color: var(--black);
+    background-color: var(--lavender);
+  }
+
+
+   /* ========== Contact Form ========== */
+  .contact-form-section {
+    margin-top: 2em;
+    padding: 1em;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .contact-form-section h2 {
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+  }
+  
+  #contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  #contact-form input,
+  #contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  #contact-form button {
+    background-color: #FF6F61;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  #contact-form button:hover {
+    background-color: #e95c50;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 0.8em;
+    height: 1em;
+  }
+  
+  /* ========== Authorization ========== */
+  #auth-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .auth-box {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 24px;
+    border-color: var(--butter-yellow);
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+  }
+
+  .auth-box button {
+    display: block;
+    margin: 0.7rem auto;
+    padding: 0.65rem 1.2rem;
+    border-radius: 10px;
+    border: none;
+    font-weight: 600;
+    font-family: 'Quicksand', sans-serif;
+    cursor: pointer;
+    background-color: var(--white);
+  }
+
+  .auth-box button:hover {
+    color: var(--white);
+    background-color: var(--pink);
+  }
+
+  #close-auth-box {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    background: none;
+    border: none;
+    font-size: 1.7rem;
+    color: var(--pink);
+    cursor: pointer;
+  }
+
+  #close-auth-box:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  #welcome-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  #welcome-section button {
+    width: 65%;
+    max-width: 220px;
+    padding: 0.7rem;
+    border: none;
+    background-color: var(--lavender);
+    color: var(--white);
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #welcome-section button:hover {
+    background-color: var(--pink);
+    color: var(--white);
+  }
+
+  #welcome-section h2 {
+    color: var(--lavender);
+    font-family: 'Pacifico';
+    font-weight: bold;
+  }
+
+  #welcome-section p {
+    color: var(--pink);
+    font-family: 'Quicksand';
+  }
+
+  #login-section input,
+  #register-section input {
+    display: block;
+    width: 85%;
+    padding: 0.75rem;
+    margin: 0.6rem auto;
+    border: none;
+    border-radius: 5px;
+    border-color: var(--lavender);
+    font-size: 1rem;
+    font-family: 'Quicksand', sans-serif;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+
+  #show-login:hover,
+  #show-register:hover {
+    background-color: var(--blush-pink);
+  }
+
+  #to-login,
+  #to-register {
+    background: none;
+    color: var(--lavender);
+    text-decoration: underline;
+    border: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+  }
+
+  #to-login:hover,
+  #to-register:hover {
+    color: var(--pink);
+  }
+
+  #logout-container {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    display: none;
+  }
+
+  #logout-button {
+    background: transparent;
+    color: var(--pink);
+    font-weight: bold;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  #logout-button:hover {
+    color: var(--lavender);
+  }

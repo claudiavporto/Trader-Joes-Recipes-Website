@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Easy Trader Joe's College Meals</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <header>
+    <h1 id="main-title">Easy Trader Joe's College Meals</h1>
+    <nav aria-label="Main navigation">
+      <a href="../views/index.html" class="active">Home</a>
+      <a href="../views/recipes.html">Recipes</a>
+      <a href="../views/myrecipes.html">My Recipes</a>
+      <a href="../views/shoppingcart.html">Shopping Cart</a>
+      <a href="../views/about.html">About</a>
+      <span id="logout-container" style="display: none;">
+        <button id="logout-button" onclick="logout()">Logout</button>
+      </span>
+    </nav>
+  </header>
+
+  <!-- Authentication -->
+  <div id="auth-backdrop">
+    <div class="auth-box">
+      <button id="close-auth-box">&times;</button>
+
+      <div id="welcome-section">
+        <h2>Welcome!</h2>
+        <p>Log in or create an account to get started.</p>
+        <button id="show-login">Login</button>
+        <button id="show-register">Register</button>
+      </div>
+
+      <div id="login-section" style="display: none;">
+        <h3>Login</h3>
+        <input type="text" id="login-email" placeholder="Email" />
+        <input type="password" id="login-password" placeholder="Password" />
+        <button onclick="login()">Login</button>
+        <button id="to-register">Register instead</button>
+      </div>
+
+      <div id="register-section" style="display: none;">
+        <h3>Register</h3>
+        <input type="text" id="register-username" placeholder="Username" />
+        <input type="text" id="register-email" placeholder="Email" />
+        <input type="password" id="register-password" placeholder="Password" />
+        <button onclick="register()">Register</button>
+        <button id="to-login">Login instead</button>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section>
+      <p id="description">
+        Welcome to your go-to spot for simple, affordable, and adorable college meals using Trader Joe's goodies! Whether you're cramming for finals or craving a cozy bite, we’ve got you covered with all of the delicious recipes you need.💖✨
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Easy Trader Joe's College Meals
+  </footer>
+
+  <script src="../config.js"></script>
+  <script src="../auth.js"></script>
+</body>
+</html>
