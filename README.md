@@ -34,7 +34,7 @@ A full-stack web application designed to help college students find quick, healt
 
 ## Project Structure
 
-/Trader Joes Recipes - 4/
+```/Trader Joes Recipes - 4/
 │
 ├── views/
 │   ├── index.html
@@ -61,13 +61,13 @@ A full-stack web application designed to help college students find quick, healt
 │   └── middleware/
 │       └── authMiddleware.js
 ├── Images/
-└── README.md
 └── auth.js
 └── cart.js
 └── config.js
 └── contact.js
 └── recipes.js
 └── style.css
+└── README.md```
 
 ## Setup & Installation
 
