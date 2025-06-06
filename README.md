@@ -1,4 +1,4 @@
-# Easy Trader Joe’s College Meals
+```# Easy Trader Joe’s College Meals
 
 A full-stack web application designed to help college students find quick, healthy, and affordable meals using Trader Joe’s ingredients. The app features recipe filtering, a shopping list generator, user login, and a clean, student-friendly UI.
 
@@ -34,7 +34,7 @@ A full-stack web application designed to help college students find quick, healt
 
 ## Project Structure
 
-```/Trader Joes Recipes - 4/
+/Trader Joes Recipes - 4/
 │
 ├── views/
 │   ├── index.html
@@ -67,7 +67,7 @@ A full-stack web application designed to help college students find quick, healt
 └── contact.js
 └── recipes.js
 └── style.css
-└── README.md```
+└── README.md
 
 ## Setup & Installation
 
@@ -147,4 +147,4 @@ npm run dev
 
 **Claudia Porto**  
 CSC 240 – Final Project  
-June 2025
+June 2025```
