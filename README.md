@@ -94,9 +94,9 @@ npm install
 ```
 
 ### 4. Create a .env File
-```bash
-Create a `.env` file in `/backend/` with:
 
+Create a `.env` file in `/backend/` with:
+```bash
 PORT=5000
 MONGODB_URI=your_mongo_uri_here
 JWT_SECRET=your_jwt_secret_key_here
